@@ -4,7 +4,7 @@ import net.objecthunter.exp4j.ExpressionBuilder
 
 import scala.concurrent.Future
 
-object Exp4jClient {
+object Exp4s {
 
   def runFormula(
       formula: String, values: Array[Double]): Either[String, Double] = {
@@ -31,6 +31,7 @@ object Exp4jClient {
   def runFormulaAsycly(
       formula: String,
       values: Array[Double]): Future[Either[String, Double]] = {
+    import scala.concurrent.ExecutionContext.Implicits.global
     Future {
       runFormula(formula, values)
     }
