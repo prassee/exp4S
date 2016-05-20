@@ -1,8 +1,11 @@
-package exp4j
+package exp4s
 
 import net.objecthunter.exp4j.ExpressionBuilder
 
+import scala.concurrent.Future
+
 object Exp4jClient {
+
   def runFormula(
       formula: String, values: Array[Double]): Either[String, Double] = {
     val regex = "[a-z]+".r
@@ -24,11 +27,12 @@ object Exp4jClient {
       Left("not enough values")
     }
   }
-}
 
-object Main extends App {
-  val result = Exp4jClient.runFormula(
-      "princ + ((princ * n * r) / 100)", Array(1000, 2, 10))
-
-  println(result)
+  def runFormulaAsycly(
+      formula: String,
+      values: Array[Double]): Future[Either[String, Double]] = {
+    Future {
+      runFormula(formula, values)
+    }
+  }
 }
