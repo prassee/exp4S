@@ -24,3 +24,6 @@ A Simple Scala wrapper around Exp4j library
       // return Left(not enough values)
       println(siYieldWithmissedValue)
       
+      // run the same formual Async'ly with Futures
+      val siYieldAsync = runFormulaAsyncly("(principle + (principle * rate * duration) / 100)", Array(1000, 10, 2))
+      
