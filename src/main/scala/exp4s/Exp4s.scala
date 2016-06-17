@@ -1,39 +1,14 @@
 package exp4s
 
-import net.objecthunter.exp4j.ExpressionBuilder
+object Exp4s extends App {
+  import Exp4sProcessor._
 
-import scala.concurrent.Future
-
-object Exp4s {
-
-  def runFormula(
-      formula: String, values: Array[Double]): Either[String, Double] = {
-    val regex = "[a-z]+".r
-    val variables =
-      regex.findAllMatchIn(formula).toArray.map(x => x.matched).distinct
-    val eb = new ExpressionBuilder(formula).variables(variables: _*).build()
-    if (variables.length == values.length) {
-      for {
-        variable <- variables
-        value <- values
-        _ = {
-          if (variables.indexOf(variable) == values.indexOf(value)) {
-            eb.setVariable(variable, value)
-          }
-        }
-      } yield ()
-      Right(eb.evaluate())
-    } else {
-      Left("not enough values")
+  lazy val y =
+    "(aa + bb + 2ab)" ~= Array("a", "b") ~> {
+      case "a" => "a" -> 2.0
+      case "b" => "b" -> 3.0
+      case _   => "_" -> 0.0
     }
-  }
 
-  def runFormulaAsycly(
-      formula: String,
-      values: Array[Double]): Future[Either[String, Double]] = {
-    import scala.concurrent.ExecutionContext.Implicits.global
-    Future {
-      runFormula(formula, values)
-    }
-  }
+  println(y)
 }
