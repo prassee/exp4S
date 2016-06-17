@@ -2,28 +2,18 @@
 
 A Simple Scala wrapper around Exp4j library
 
+#Download
+
+
 
 #Usage
 
-      import Exp4s._
 
-      // the below example makes an sync call the SI calculation formula
-      // first parameter takes the formula , the next one takes the values for the variables
+    import Exp4sProcessor._
 
-      val siYield = runFormula(
-          "(principle + (principle * rate * duration) / 100)", Array(1000, 10, 2))
-
-      // returns Right(1200.0)
-      println(siYield)
-
-      // now lets see what happens when we done supply values for all the variables
-
-      val siYieldWithmissedValue = runFormula(
-          "(principle + (principle * rate * duration) / 100)", Array(1000, 10))
-
-      // return Left(not enough values)
-      println(siYieldWithmissedValue)
-      
-      // run the same formual Async'ly with Futures
-      val siYieldAsync = runFormulaAsyncly("(principle + (principle * rate * duration) / 100)", Array(1000, 10, 2))
-      
+      lazy val y =
+        "(aa + bb + 2ab)" ~= Array("a", "b") ~> {
+          case "a" => "a" -> 2.0
+          case "b" => "b" -> 3.0
+          case _   => "_" -> 0.0
+        }
