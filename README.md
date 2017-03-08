@@ -1,15 +1,15 @@
-##exp4s
+## exp4s
 
 A Simple idiomatic Scala wrapper around Exp4j library. Read more about exp4j
 
-###Download
+### Download
 
     //moma -> my own maven archive :)
     resolvers ++= Seq("moma" at "https://github.com/prassee/moma/raw/master/snapshots")
     libraryDependencies ++= Seq("prassee" %% "exp4s" % "0.0.1")
 
 
-###Usage
+### Usage
 
       import Exp4sProcessor._
 
