@@ -4,6 +4,8 @@ Scala wrapper around Exp4j library. This is still under-development and more fea
 
 ### usage
 
+**current version** 0.0.2
+
     //moma -> my own maven archive :)
     resolvers ++= Seq("moma" at "https://github.com/prassee/moma/raw/master/snapshots")
     libraryDependencies ++= Seq("me.prassee" %% "exp4s" % "0.0.2")
