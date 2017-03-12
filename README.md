@@ -1,29 +1,33 @@
-## exp4s
+## Exp4s
 
-A Simple idiomatic Scala wrapper around Exp4j library. Read more about exp4j
+Scala wrapper around Exp4j library. This is still under-development and more features to come. Read more about [exp4j](http://www.objecthunter.net/exp4j/). 
 
-### Download
+### usage
 
     //moma -> my own maven archive :)
     resolvers ++= Seq("moma" at "https://github.com/prassee/moma/raw/master/snapshots")
-    libraryDependencies ++= Seq("prassee" %% "exp4s" % "0.0.1")
-
+    libraryDependencies ++= Seq("me.prassee" %% "exp4s" % "0.0.2")
 
 ### Usage
 
+**Step 1**
+
       import Exp4sProcessor._
+      
+**Step 2**
 
-      lazy val y =
-        "(aa + bb + 2ab)" ~= Array("a", "b") ~> {
-          case "a" => "a" -> 2.0
-          case "b" => "b" -> 3.0
-          case _   => "_" -> 0.0
-        }
-      // enjoy
+      // define formula and its variables as Array[String]
+      val aplusBSqr: (String, Array[String]) = "(sqrt(a^2) + sqrt(b^2))" -> Array("a", "b")
 
+**Step3**
 
-### @TODO (wrapping Exp4j)
+      // now just supply values by calling 
+      aplusBSqr._1 <~ (aplusBSqr._2 >> Seq(1, 2)
+      
 
+### @TODO 
+
+* use macros to simplify usage 
 * support for custom functions
 * support for async formula execution
 
