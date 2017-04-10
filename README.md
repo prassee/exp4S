@@ -1,10 +1,12 @@
 ## Exp4s
 
-Scala wrapper around Exp4j library. This is still under-development and more features to come. Read more about [exp4j](http://www.objecthunter.net/exp4j/). 
+Scala wrapper around Exp4j library. This is still under-development and 
+more features to come. Read more about [exp4j](http://www.objecthunter.net/exp4j/). 
 
 ### Maven co-ordinates / download
 
-Exp4s is hosted only my personal github maintained repo server. Please find the below co-ordinates to usage.
+Exp4s is hosted only my personal github maintained repo server. 
+Please find the below co-ordinates to usage.
 
 **current version** 0.0.2
 
