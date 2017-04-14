@@ -16,23 +16,24 @@ Please find the below co-ordinates to usage.
 
 ### Usage
 
-**Step 1**
 
       import Exp4sProcessor._
       
 **Step 2**
 
-      // define formula and its variables as Array[String]
-      val aplusBSqr: (String, Array[String]) = "(sqrt(a^2) + sqrt(b^2))" -> Array("a", "b")
+      // a more idomatic way of doing
+      // pass the formula , the variables followed by the values
+      val x = forFormula("(sqrt(a^2) + sqrt(b^2))")("a", "b")(1, 2)
+      println(x)
 
 **Step3**
 
-      // now just supply values by calling 
-      aplusBSqr._1 <~ (aplusBSqr._2 >> Seq(1, 2)
+      // shortcut and simplified one  - formula followed by "with" keyword and variables and values as next set of params
+      val compiledForm: Double = compileFormula("(sqrt(a^2) + sqrt(b^2)) with a,b", 1, 2)
+      println(compiledForm)
       
 ### @TODO 
 
-* use macros to simplify usage 
 * support for custom functions
 * support for async formula execution
 
