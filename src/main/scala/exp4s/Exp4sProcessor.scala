@@ -32,4 +32,11 @@ object Exp4sProcessor {
   def forFormula(formulaStr: String)(variables: String*)(values: Double*): Double =
     formulaStr ~~> (variables.toArray ~> values.toArray)
 
+  def compileFormula(formulaSource: String, values: Double*): Double = {
+    val x           = formulaSource.split(" with ")
+    val rawFormula  = x(0)
+    val formulaVars = x(1).split(",")
+    forFormula(rawFormula)(formulaVars: _*)(values: _*)
+  }
+
 }
