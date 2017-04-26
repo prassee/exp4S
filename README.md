@@ -8,7 +8,7 @@ more features to come. Read more about [exp4j](http://www.objecthunter.net/exp4j
 Exp4s is hosted only my personal github maintained repo server. 
 Please find the below co-ordinates to usage.
 
-**current version** 0.0.3
+**current version** 0.0.4
 
     //moma -> my own maven archive :)
     resolvers ++= Seq("moma" at "https://github.com/prassee/moma/raw/master/snapshots")
