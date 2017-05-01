@@ -2,3 +2,5 @@
 .idea/
 /project/target/
 /bin/
+.cache-*
+.project
